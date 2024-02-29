@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import TodoItemCreate from './components/TodoItemCreate'
 
 function App() {
   return (
+
     <div className="App">
-      <title>Hai</title>
+      <TodoItemCreate/>
     </div>
   );
 }
