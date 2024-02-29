@@ -1,5 +1,5 @@
 import {useState} from "react";
-import * as events from "events";
+import {createToDoList} from "../services/todoService"
 
 function TodoItemCreate(){
     const [taskName, setTaskName] = useState('');
@@ -7,6 +7,13 @@ function TodoItemCreate(){
     const handleInputChange = (event) => {
         setTaskName(event.target.value)
     }
+
+    const saveTask = async() => {
+        const data = {
+            name:taskName
+        };
+        await createToDoList(data);
+    } ;
 
     return(
         <div>
@@ -25,7 +32,7 @@ function TodoItemCreate(){
                 placeholder={"Description"}
             />
             <div>
-                <button>Save</button>
+                <button onClick={saveTask}>Save</button>
             </div>
 
         </div>
