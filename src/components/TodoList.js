@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {fetchTasks} from "../services/todoService";
+import TodoItemCreate from "./TodoItemCreate";
 
 function TodoList() {
 
@@ -18,8 +19,13 @@ function TodoList() {
         getTasks().catch(error => console.error('Error in getTasks:', error));
     }, []);
 
+    const addTaskToList = (newTask) => {
+        setTasks((prevTasks) => [...prevTasks, newTask]);
+    };
+
     return (
         <div>
+            <TodoItemCreate onTaskCreate={addTaskToList}/>
             {tasks?.map((task, i) => (
                 <div key={i}>
                     {task.taskName}
