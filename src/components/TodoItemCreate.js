@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {createToDoList} from "../services/todoService"
+import {Button, TextareaAutosize, TextField, Typography} from "@mui/material";
 
 function TodoItemCreate({onTaskCreate}) {
     const [taskName, setTaskName] = useState('');
@@ -21,22 +22,25 @@ function TodoItemCreate({onTaskCreate}) {
     return (
         <div>
             <div>
-                <h3>To-Do List</h3>
+                <Typography variant="h3" component="h2">
+                    TO-DO List
+                </Typography>
             </div>
             <div>
-                <input
-                    type={"text"}
-                    placeholder={"Task Name"}
+                <TextField
+                    varient={"outlined"}
+                    label={"Task Name"}
                     value={taskName}
                     onChange={handleInputChange}
                 />
             </div>
             <div>
-            <textarea
+            <TextField
                 placeholder={"Description"}
+                multiline
             />
                 <div>
-                    <button onClick={saveTask}>Save</button>
+                    <Button onClick={saveTask}>Save</Button>
                 </div>
 
             </div>
