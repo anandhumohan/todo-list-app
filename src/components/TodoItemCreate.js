@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {createToDoList} from "../services/todoService"
 import {Button, TextareaAutosize, TextField, Typography} from "@mui/material";
+import {margin} from "@mui/system";
 
 function TodoItemCreate({onTaskCreate}) {
     const [taskName, setTaskName] = useState('');
@@ -21,12 +22,12 @@ function TodoItemCreate({onTaskCreate}) {
 
     return (
         <div>
-            <div>
+            <div style={{ marginTop: '75px' }}>
                 <Typography variant="h3" component="h2">
                     TO-DO List
                 </Typography>
             </div>
-            <div>
+            <div style={{ marginTop: '5px' }}>
                 <TextField
                     varient={"outlined"}
                     label={"Task Name"}
@@ -34,13 +35,13 @@ function TodoItemCreate({onTaskCreate}) {
                     onChange={handleInputChange}
                 />
             </div>
-            <div>
+            <div style={{ marginTop: '5px' }}>
             <TextField
                 placeholder={"Description"}
                 multiline
             />
-                <div>
-                    <Button onClick={saveTask}>Save</Button>
+                <div style={{ marginTop: '5px' }}>
+                    <Button variant={"contained"} onClick={saveTask}>Save</Button>
                 </div>
 
             </div>
